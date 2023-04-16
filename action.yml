@@ -19,11 +19,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - env:
-        ACTION_COVERAGE_HTML: ${{ inputs.coverage_html }}
-        ACTION_COVERAGE_PHP: ${{ inputs.coverage_php }}
-        ACTION_COVERAGE_TEXT: ${{ inputs.coverage_text }}
-        ACTION_COVERAGE_XML: ${{ inputs.coverage_xml }}
-        ACTION_ARGS: ${{ inputs.args }}
     - run: docker exec -it ${CONTAINER_NAME} entrypoint.sh
       shell: bash
