@@ -12,5 +12,4 @@ jobs:
     name: Run phpUnit test
     steps:
       - uses: actions/checkout@v3
-      - id: foo
-        uses: nguyenthemanh2601/phpunit@v1
+      - uses: nguyenthemanh2601/phpunit@v1
