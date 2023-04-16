@@ -1,0 +1,29 @@
+name: PHPUnit 5.6
+description: Run your PHPUnit tests with php 5.6 in your Github Actions.
+inputs:
+  coverage_html:
+    description: Generate code coverage report in HTML format
+    required: false
+
+  coverage_text:
+    description: Generate code coverage report in text format (true to output to console, path to output to file)
+    required: false
+
+  coverage_xml:
+    description: Generate code coverage report in PHPUnit XML format
+    required: false
+
+  args:
+    description: Extra arguments to pass to the phpunit binary
+    required: false
+runs:
+  using: "composite"
+  steps:
+    - env:
+        ACTION_COVERAGE_HTML: ${{ inputs.coverage_html }}
+        ACTION_COVERAGE_PHP: ${{ inputs.coverage_php }}
+        ACTION_COVERAGE_TEXT: ${{ inputs.coverage_text }}
+        ACTION_COVERAGE_XML: ${{ inputs.coverage_xml }}
+        ACTION_ARGS: ${{ inputs.args }}
+    - run: docker exec -it ${CONTAINER_NAME} entrypoint.sh
+      shell: bash
