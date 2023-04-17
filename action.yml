@@ -19,5 +19,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: docker exec -it ${CONTAINER_NAME} entrypoint.sh
+    - run: docker ps
       shell: bash
