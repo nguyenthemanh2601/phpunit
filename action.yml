@@ -19,5 +19,7 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - run: echo "${{ github.action_path }}"
+      shell: bash
     - run: $GITHUB_ACTION_PATH/entrypoint.sh
       shell: bash
