@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Build and run PHPUnit
-      run: |
-        docker build --target development -t my-php-app .
-        docker run my-php-app .
-        ./vendor/bin/phpunit
+        run: |
+          docker build --target development -t my-php-app .
+          docker run my-php-app .
+          ./vendor/bin/phpunit
