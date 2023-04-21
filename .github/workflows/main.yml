@@ -14,9 +14,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Build Docker image
-        run: docker build -t my-docker-image .
+        run: docker build -t my-docker-image . --progress=plain
       - name: Mount source
-        run: docker run -d -v $(pwd):/var/www/html my-docker-image
+        run: docker run -d --name my-docker-image -v $(pwd):/var/www/html my-docker-image
       - name: Show docker root path
         run: docker exec -it my-docker-image pwd
       - name: List docker files
