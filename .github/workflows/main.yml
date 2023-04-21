@@ -15,7 +15,9 @@ jobs:
         uses: actions/checkout@v3
       - name: Build Docker image
         run: docker build -t my-docker-image .
-      - name: List files
-        run: ls -la
+      - name: Show docker root path
+        run: docker run --rm my-docker-image pwd
+      - name: List docker files
+        run: docker run --rm my-docker-image ls -la
       - name: Run PHPUnit tests
         run: docker run --rm my-docker-image vendor/bin/phpunit
