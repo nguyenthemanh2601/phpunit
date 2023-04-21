@@ -18,8 +18,8 @@ jobs:
       - name: Mount source
         run: docker run --tty=false -d --name my-docker-image -v $(pwd):/var/www/html my-docker-image
       - name: Show docker root path
-        run: docker exec -it my-docker-image pwd
+        run: docker exec -it --tty=false my-docker-image pwd
       - name: List docker files
-        run: docker exec -it my-docker-image ls -la
+        run: docker exec -it --tty=false my-docker-image ls -la
       - name: Run PHPUnit tests
-        run: docker exec -it my-docker-image vendor/bin/phpunit
+        run: docker exec -it --tty=false my-docker-image vendor/bin/phpunit
