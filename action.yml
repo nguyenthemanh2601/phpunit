@@ -12,5 +12,5 @@ runs:
       shell: bash
     - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
       shell: bash
-    - run: goodbye.sh
+    - run: entrypoint.sh
       shell: bash
