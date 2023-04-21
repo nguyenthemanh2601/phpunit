@@ -22,4 +22,6 @@ jobs:
       - name: List docker files
         run: docker exec -it --tty=false my-docker-image ls -la
       - name: Run PHPUnit tests
-        run: docker exec -it --tty=false my-docker-image vendor/bin/phpunit
+        run: |
+          echo "${{ github.action_path }}" >> $GITHUB_PATH
+          ./entrypoint.sh
