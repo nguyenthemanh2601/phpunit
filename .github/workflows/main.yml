@@ -11,5 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Run phpUnit test
     steps:
-      - uses: actions/checkout@v3
-      - uses: nguyenthemanh2601/phpunit@main
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Run PHPUnit
+      run: ./vendor/bin/phpunit
