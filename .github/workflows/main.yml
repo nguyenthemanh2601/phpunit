@@ -16,9 +16,9 @@ jobs:
       - name: Build Docker image
         run: docker build -t my-docker-image . --progress=plain
       - name: Mount source
-        run: docker run -d --name my-docker-image -v $(pwd):/var/www/html my-docker-image
-      - name: Show docker root path
-        run: docker exec -it my-docker-image pwd
+        run: |
+          docker run --tty=false my_image -d --name my-docker-image -v $(pwd):/var/www/html my-docker-image
+          docker exec -it my-docker-image pwd
       - name: List docker files
         run: docker exec -it my-docker-image ls -la
       - name: Run PHPUnit tests
