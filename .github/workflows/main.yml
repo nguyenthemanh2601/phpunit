@@ -13,11 +13,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Mount source
-        run: docker run --rm my-docker-image --mount type=bind,source="$(pwd)"/,target=/var/www/html
       - name: Build Docker image
         run: docker build -t my-docker-image .
-  
+      - name: Mount source
+        run: docker run --rm my-docker-image --mount type=bind,source="$(pwd)"/,target=/var/www/html
       - name: Show docker root path
         run: docker run --rm my-docker-image pwd
       - name: List docker files
