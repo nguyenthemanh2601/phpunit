@@ -1,5 +1,7 @@
 FROM php:5.6-fpm
 
+RUN php -v
+
 RUN apt-get update && apt-get install -y  --no-install-recommends libmcrypt-dev \
     zip unzip
 
